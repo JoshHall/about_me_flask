@@ -1,0 +1,27 @@
+nav {
+  background-color: #607d8b;
+  }
+
+nav li > a{
+  color: #263238;
+  text-decoration: none;
+}
+
+nav li > a:hover{
+  color: rgba(38,50,56,.7);
+  text-decoration: none;
+  height: 100%;
+}
+
+footer .row{
+  padding-left: 3vw;
+}
+
+.banner-img-container {
+  margin-top: 10vh;
+}
+
+.hobby-container, .description-container {
+  margin-top: 10vh;
+  padding-left: 4vw;
+}
