@@ -1,3 +1,7 @@
+body {
+  overflow-x: hidden;
+}
+
 nav {
   background-color: #607d8b;
   }
@@ -10,18 +14,32 @@ nav li > a{
 nav li > a:hover{
   color: rgba(38,50,56,.7);
   text-decoration: none;
-  height: 100%;
 }
 
+.active{
+  font-weight: bold;
+}
+
+footer {
+  background-color: #607d8b;
+  border-top-left-radius: 300px;
+  border-top-right-radius: 300px;
+}
 footer .row{
-  padding-left: 3vw;
+  padding-left: 5vw;
+  padding-top: 3vh;
 }
 
 .banner-img-container {
-  margin-top: 10vh;
+  margin-top: 9.5vh;
+  border-bottom-left-radius: 300px;
+  border-bottom-right-radius: 300px;
+  overflow: hidden;
 }
+
 
 .hobby-container, .description-container {
   margin-top: 10vh;
+  margin-bottom: 10vh;
   padding-left: 4vw;
 }

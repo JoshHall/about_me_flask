@@ -1,30 +1,44 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Josh's Portfolio - {{ title }}</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="../static/css/main.css">
-  </head>
-  <body>
-    <header>
-      <!-- navbar-light bg-light -->
-      <nav class="navbar navbar-expand-lg fixed-top">
-        <h1 class="navbar-brand">{{ name }}</h1>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('index') }}">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('about_me') }}">About Me</a>
-            </li>
-        </div>
-      </nav>
-    </header>
+{% extends 'bootstrap/base.html' %}
 
-    {% block content %}{% endblock %}
+{% block title %}
+  Josh's Portfolio - {{ title }}
+{% endblock %}
 
+{% block styles %}
+  {{ super() }}
+  <link rel="stylesheet" href="../static/css/main.css">
+{% endblock %}
+
+{% block scripts %}
+  {{ super() }}
+{% endblock %}
+
+{% block navbar %}
+  <!-- navbar-light bg-light -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <h1 class="navbar-brand ">{{ name }}</h1>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        {% if title == 'Home' %}
+          <li class="nav-item active">
+        {% else %}
+          <li class="nav-item">
+        {% endif %}
+        <a class="nav-link" href="{{ url_for('index') }}">Home <span class="sr-only">(current)</span></a>
+        </li>
+        {% if title == 'About Me' %}
+          <li class="nav-item active">
+        {% else %}
+          <li class="nav-item">
+        {% endif %}
+        <a class="nav-link" href="{{ url_for('about_me') }}">About Me</a>
+        </li>
+    </div>
+  </nav>
+{% endblock %}
+
+{% block content %}
+  {% block app_content %}{% endblock %}
   <!-- Footer using bootstrap4 -->
     <footer class="footer-edit page-footer font-small lighten-3 pt-4">
 
@@ -43,31 +57,6 @@
           <p>Phone: (949) 400-9401</p>
 
         </div>
-        <!-- Grid column -->
-
-        <hr class="clearfix w-100 d-md-none pb-3">
-
-        <!-- Grid column -->
-        <!-- <div class="col-md-3 mb-md-0 mb-3">
-            <h5 class="text-uppercase">Links</h5>
-            <ul class="list-unstyled">
-              <li>
-                <a href="#!">Link 1</a>
-              </li>
-              <li>
-                <a href="#!">Link 2</a>
-              </li>
-              <li>
-                <a href="#!">Link 3</a>
-              </li>
-              <li>
-                <a href="#!">Link 4</a>
-              </li>
-            </ul>
-
-          </div> -->
-          
-          <!-- Grid column -->
 
       </div>
       <!-- Grid row -->
@@ -76,7 +65,6 @@
     <!-- Footer Links -->
 
     <!-- Copyright -->
-    <div class="footer-copyright text-center py-3">© 2018 Copyright: </div>
+    <div class="footer-copyright text-center py-3">© 2018 Copyright: Pending</div>
     <!-- Copyright -->
-  </body>
-</html>
+{% endblock %}
